@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>exception-jdbc-demo</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<description></description>
+		<display-name>MathPage</display-name>
+		<servlet-name>MathPage</servlet-name>
+		<servlet-class>in.datalayer.pages.MathPage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MathPage</servlet-name>
+		<url-pattern>/MathPage</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>CustomExceptionHandler</display-name>
+		<servlet-name>CustomExceptionHandler</servlet-name>
+		<servlet-class>in.datalayer.pages.CustomExceptionHandler</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CustomExceptionHandler</servlet-name>
+		<url-pattern>/CustomExceptionHandler</url-pattern>
+	</servlet-mapping>
+
+	<error-page>
+		<error-code>404</error-code>
+		<location>/CustomExceptionHandler</location>
+	</error-page>
+
+	<error-page>
+		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/CustomExceptionHandler</location>
+	</error-page>
+
+	<servlet>
+		<description></description>
+		<display-name>RegisterPage</display-name>
+		<servlet-name>RegisterPage</servlet-name>
+		<servlet-class>in.datalayer.pages.RegisterPage</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterPage</servlet-name>
+		<url-pattern>/RegisterPage</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>ConfirmRegistration</display-name>
+		<servlet-name>ConfirmRegistration</servlet-name>
+		<servlet-class>in.datalayer.pages.ConfirmRegistration</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ConfirmRegistration</servlet-name>
+		<url-pattern>/ConfirmRegistration</url-pattern>
+	</servlet-mapping>
+</web-app>
